@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "ProthomAlo PDF Downloader",
+  "version": "1.0",
+  "description": "Download the paper pages from ProthomAlo when loaded",
+  "icons": {
+    "16": "img/icon-16.png",
+    "32": "img/icon-32.png",
+    "48": "img/icon-48.png",
+    "128": "img/icon-128.png"
+  },
+  "content_scripts": [
+    {
+        "matches": [
+            "https://epaper.prothomalo.com/Home/*",
+            "https://epaper.thedailystar.net/*"
+        ],
+        "js": ["src/padown.js"]
+    },
+    {
+        "world": "MAIN",
+        "js": ["src/downloader.js"],
+        "matches": [
+          "https://epaper.prothomalo.com/Home/*",
+          "https://epaper.thedailystar.net/*"
+        ],
+        "run_at": "document_start"
+    }
+  ]
+}
